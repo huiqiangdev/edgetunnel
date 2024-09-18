@@ -1156,7 +1156,7 @@ async function ADD(envadd) {
 async function getHQGithubAddressesapi(envadd) {
 	var myHeaders = new Headers();
 	myHeaders.append("User-Agent", "Apifox/1.0.0 (https://apifox.com)");
-	myHeaders.append("Authorization", "Bearer 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");
+	myHeaders.append("Authorization", "Bearer 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");
 	myHeaders.append("Accept", "*/*");
 	myHeaders.append("Host", "api.github.com");
 	myHeaders.append("Connection", "keep-alive");
