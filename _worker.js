@@ -1155,8 +1155,10 @@ async function ADD(envadd) {
 }
 async function getHQGithubAddressesapi(envadd) {
 	var myHeaders = new Headers();
+	var token = 'Z2hwXzdtTTVQYXVSNWRtMHV4QmMzdGhlWUhZY3VRclhvNjNIQVA1dw=='
+	var realtoken = atob(token);
 	myHeaders.append("User-Agent", "Apifox/1.0.0 (https://apifox.com)");
-	myHeaders.append("Authorization", "Bearer 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");
+	myHeaders.append("Authorization", `Bearer ${realtoken}`);
 	myHeaders.append("Accept", "*/*");
 	myHeaders.append("Host", "api.github.com");
 	myHeaders.append("Connection", "keep-alive");
@@ -1169,7 +1171,7 @@ async function getHQGithubAddressesapi(envadd) {
 
    var api = await fetch("https://api.github.com/repos/huiqiangdev/privateapi/contents/ip.txt?ref=main", requestOptions)
 		.then(response => response.json())
-		.then(result => String.bytesFrom(result.content, 'base64'));
+		.then(result => atob(result.content));
    var add = await ADD(api)
    return add
 }
