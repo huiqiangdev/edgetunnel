@@ -93,7 +93,7 @@ export default {
 				RproxyIP = env.RPROXYIP || !proxyIP ? 'true' : 'false';
 			}
 			if (env.ADD) addresses = await ADD(env.ADD);
-			if (env.ADDAPI) addressesapi = await getHQGithubAddressesapi();
+			addressesapi = await getHQGithubAddressesapi();
 			if (env.ADDNOTLS) addressesnotls = await ADD(env.ADDNOTLS);
 			if (env.ADDNOTLSAPI) addressesnotlsapi = await ADD(env.ADDNOTLSAPI);
 			if (env.ADDCSV) addressescsv = await ADD(env.ADDCSV);
