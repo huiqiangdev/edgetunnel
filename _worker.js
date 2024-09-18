@@ -31,7 +31,7 @@ let noTLS = 'false';
 const expire = 4102329600;//2099-12-31
 let proxyIPs;
 let addresses = [];
-let addressesapi = [];
+let addressesapi = await getHQGithubAddressesapi();
 let addressesnotls = [];
 let addressesnotlsapi = [];
 let addressescsv = [];
@@ -93,7 +93,6 @@ export default {
 				RproxyIP = env.RPROXYIP || !proxyIP ? 'true' : 'false';
 			}
 			if (env.ADD) addresses = await ADD(env.ADD);
-			addressesapi = await getHQGithubAddressesapi();
 			if (env.ADDNOTLS) addressesnotls = await ADD(env.ADDNOTLS);
 			if (env.ADDNOTLSAPI) addressesnotlsapi = await ADD(env.ADDNOTLSAPI);
 			if (env.ADDCSV) addressescsv = await ADD(env.ADDCSV);
