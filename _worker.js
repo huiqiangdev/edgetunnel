@@ -93,7 +93,7 @@ export default {
 				RproxyIP = env.RPROXYIP || !proxyIP ? 'true' : 'false';
 			}
 			if (env.ADD) addresses = await ADD(env.ADD);
-			if (env.ADDAPI) addressesapi = await ADD(env.ADDAPI);
+			if (env.ADDAPI) addressesapi = await getAddressesapi();
 			if (env.ADDNOTLS) addressesnotls = await ADD(env.ADDNOTLS);
 			if (env.ADDNOTLSAPI) addressesnotlsapi = await ADD(env.ADDNOTLSAPI);
 			if (env.ADDCSV) addressescsv = await ADD(env.ADDCSV);
@@ -1152,6 +1152,26 @@ async function ADD(envadd) {
 	const add = addtext.split(',');
 	
 	return add;
+}
+async function getAddressesapi(envadd) {
+	var myHeaders = new Headers();
+	myHeaders.append("User-Agent", "Apifox/1.0.0 (https://apifox.com)");
+	myHeaders.append("Authorization", "Bearer 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");
+	myHeaders.append("Accept", "*/*");
+	myHeaders.append("Host", "api.github.com");
+	myHeaders.append("Connection", "keep-alive");
+
+	var requestOptions = {
+		method: 'GET',
+		headers: myHeaders,
+		redirect: 'follow'
+	};
+
+   var api = await fetch("https://api.github.com/repos/huiqiangdev/privateapi/contents/ip.txt?ref=main", requestOptions)
+		.then(response => response.json())
+		.then(result => atob(result.content).toString());
+   var add = await ADD(api)
+   return add
 }
 
 const 啥啥啥_写的这是啥啊 = 'dmxlc3M=';
