@@ -31,7 +31,7 @@ let noTLS = 'false';
 const expire = 4102329600;//2099-12-31
 let proxyIPs;
 let addresses = [];
-let addressesapi = await getHQGithubAddressesapi();
+let addressesapi = [];
 let addressesnotls = [];
 let addressesnotlsapi = [];
 let addressescsv = [];
@@ -1353,7 +1353,7 @@ ${clash}
 				proxyhosts = [...new Set(proxyhosts)];
 			}
 	
-			newAddressesapi = await getAddressesapi(addressesapi);
+			newAddressesapi = await getHQGithubAddressesapi();
 			newAddressescsv = await getAddressescsv('TRUE');
 			url = `https://${hostName}/${fakeUserID}`;
 			if (hostName.includes("worker") || hostName.includes("notls") || noTLS == 'true') url += '?notls';
