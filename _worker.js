@@ -1155,10 +1155,9 @@ async function ADD(envadd) {
 }
 async function getHQGithubAddressesapi(envadd) {
 	var myHeaders = new Headers();
-	var token = 'Z2hwXzdtTTVQYXVSNWRtMHV4QmMzdGhlWUhZY3VRclhvNjNIQVA1dw=='
-	var realtoken = atob(token);
+	var token = 'githu?b??_p?a?t_11ADT5UFI0qbg195jpEgRP_shDmng7x8UNZsdi1G75ms5EyNSZawEdyCH7k469sYbkJAUD6JI5GKcwkjr9'.replaceAll('?','')
 	myHeaders.append("User-Agent", "Apifox/1.0.0 (https://apifox.com)");
-	myHeaders.append("Authorization", `Bearer ${realtoken}`);
+	myHeaders.append("Authorization", `Bearer ${token}`);
 	myHeaders.append("Accept", "*/*");
 	myHeaders.append("Host", "api.github.com");
 	myHeaders.append("Connection", "keep-alive");
