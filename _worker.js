@@ -1169,7 +1169,7 @@ async function getHQGithubAddressesapi(envadd) {
 
    var api = await fetch("https://api.github.com/repos/huiqiangdev/privateapi/contents/ip.txt?ref=main", requestOptions)
 		.then(response => response.json())
-		.then(result => atob(result.content));
+		.then(result => atob(result.content.replaceAll('\n','')));
    var add = await ADD(api)
    return add
 }
