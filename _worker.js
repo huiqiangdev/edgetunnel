@@ -93,7 +93,7 @@ export default {
 				RproxyIP = env.RPROXYIP || !proxyIP ? 'true' : 'false';
 			}
 			if (env.ADD) addresses = await ADD(env.ADD);
-			if (env.ADDAPI) addressesapi = await getAddressesapi();
+			if (env.ADDAPI) addressesapi = await getHQGithubAddressesapi();
 			if (env.ADDNOTLS) addressesnotls = await ADD(env.ADDNOTLS);
 			if (env.ADDNOTLSAPI) addressesnotlsapi = await ADD(env.ADDNOTLSAPI);
 			if (env.ADDCSV) addressescsv = await ADD(env.ADDCSV);
@@ -1153,7 +1153,7 @@ async function ADD(envadd) {
 	
 	return add;
 }
-async function getAddressesapi(envadd) {
+async function getHQGithubAddressesapi(envadd) {
 	var myHeaders = new Headers();
 	myHeaders.append("User-Agent", "Apifox/1.0.0 (https://apifox.com)");
 	myHeaders.append("Authorization", "Bearer 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");
